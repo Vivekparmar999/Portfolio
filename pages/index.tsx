@@ -41,7 +41,7 @@ export default function Home() {
           </div>
           <div className="text-v9-light-grey font-light mt-8">
             <p className="">
-              I'm a developer based in{' '}
+              Im a developer based in{' '}
               <Anchor
                 href="https://www.google.com/maps/place/Tempe,+AZ/@33.3919224,-111.9281011,12z/"
                 target="_blank"
@@ -82,7 +82,7 @@ export default function Home() {
         <div className="text-v9-light-grey font-light mt-2 mb-4">
           For over 3 years, I have cultivated a deep understanding and expertise
           in <span className="">Front-end Engineering</span>, always
-          prioritizing the user's needs. In every project I undertake, my aim is
+          prioritizing the users needs. In every project I undertake, my aim is
           to craft tailored, intuitive, and thoroughly tested experiences that
           align the goals of companies with the expectations of users.
         </div>
@@ -173,7 +173,7 @@ export default function Home() {
       {/**Contact Email Section*/}
       <div className='mt-20 sm:mt-32'>
         <div className='text-4xl sm:text-5xl font-medium'>Contact Me</div>
-        <div className='font-light text-v9-light-grey mt-4 mb-10'>I'm always open to new opportunities and connections. Feel free to
+        <div className='font-light text-v9-light-grey mt-4 mb-10'>Im always open to new opportunities and connections. Feel free to
           reach out to me at{" "}
           <Anchor
           href='mailto:parmarvivek084@gmail.com'
