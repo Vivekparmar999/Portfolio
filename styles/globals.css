@@ -1,0 +1,104 @@
+@import url("../fonts/Arialic/arialic.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+  cursor: none;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left:0;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  will-change: width,height,transform, border;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.cursor-hover-animation {
+  overflow: hidden;
+}
+
+.cursor-hover-animation::after{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0 ,
+    #feff8620 20%,
+    #feff8650 70%,
+    rgba(255, 255, 255, 0)
+  );
+  -webkit-animation: shimmer 1500ms infinite;
+  animation: shimmer 1500ms infinite;
+  content: "";
+}
+
+@-webkit-keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.custom-scroll-bar-x {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.Arialic_Hollow {
+  font-family: "Arialic Hollow";
+}
+
+/* Chrome, Edge, and Safari */
+.custom-scroll-bar-x::-webkit-scrollbar {
+  width: 6px;
+  height: 100%;
+}
+
+.custom-scroll-bar-x::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 8px;
+}
+
+.custom-scroll-bar-x::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 1px;
+}
+
+.custom-scroll-bar-y{
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+/* Chrome, Edge and Safari*/
+.custom-scroll-bar-y::-webkit-scrollbar{
+  width: 100%;
+  height: 4px;
+}
+
+.custom-scroll-bar-y::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 8px;
+}
+
+.custom-scroll-bar-y::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 1px;
+}
