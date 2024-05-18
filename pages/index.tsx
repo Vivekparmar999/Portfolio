@@ -14,6 +14,8 @@ import webmateLogo from '../images/webmate_logo.png';
 
 const inter = Inter({ subsets: ['latin'] });
 
+/** Node Version for Project - 20.12.2 */
+
 export default function Home() {
   /*  const { projectList, setProjectList } = useContext(ProjectListContext);
   const [ top6Projects, setTop6Projects ] = useState<ProjectCardProps[]>([]);
