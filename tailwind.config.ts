@@ -26,7 +26,7 @@ const config: Config = {
         'v9-secondary-black': '#1E1E1F',
         'ubuntu-orange': '#E95420',
       },
-      typography: ({ theme }) => ({
+      typography: (theme: (path: string) => string) => ({
         dark: {
           css: {
             '--tw-prose-counters': theme('colors.white'),
@@ -35,7 +35,6 @@ const config: Config = {
             // "--tw-prose-lead": theme("colors.pink[700]"),
             '--tw-prose-links': theme('colors.v9-pink'),
             '--tw-prose-bold': theme('colors.white'),
-            '--tw-prose-counters': theme('colors.white'),
             '--tw-prose-bullets': theme('colors.white'),
             '--tw-prose-hr': theme('colors.white'),
             '--tw-prose-quotes': theme('colors.white'),

@@ -28,7 +28,7 @@ export default function Home() {
       <div className="mt-10 sm:mt-20 flex">
         <div className="">
           <div className="text-4xl md:text-5xl font-medium">
-            <div>Hey, I`m Ruchi Parmar</div>
+            <div>Hey, I`m Vivek Parmar</div>
             <div className="mt-4">
               <span className="hidden sm:inline-block mr-4">I`m a</span>
               <span className="text-v9-yellow whitespace-nowrap">
