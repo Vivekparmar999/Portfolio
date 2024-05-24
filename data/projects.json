@@ -1,0 +1,41 @@
+[
+    {
+        "title": "Amazon Clone Website",
+        "tagline": "Build Responsive Amazon Clone Website using React Js library.<br/>Full User Authentication, CheckOut Page,Basket Functionality & other functionality",
+        "year": 0,
+        "badges": [
+          "react","firebase","javascript","stripe","firebase authentication","firestore database","firebase hosting"
+        ],
+        "github_url": "",
+        "demo_url": "https://fir-e3a3a.web.app/",
+        "stars": 0,
+        "priority": 2,
+        "category": "Web Project"
+      },
+      {
+        "title": "Speak N Do Application",
+        "tagline": "An Flutter Application that can save your daily notes, and help you to make your small task.<br/>It contain various other features like search feature, Canvas and speech to text ",
+        "year": 0,
+        "badges": [
+          "flutter","sqlite"
+        ],
+        "github_url": "",
+        "demo_url": "",
+        "stars": 0,
+        "priority": 5,
+        "category": "Web Project"
+      },
+      {
+        "title": "Portfolio",
+        "tagline": "Vivek Portfolio Website with his past experiences, projects and resume.",
+        "year": 0,
+        "badges": [
+          "react","typescript","vercel","tailwind css"
+        ],
+        "github_url": "",
+        "demo_url": "",
+        "stars": 0,
+        "priority": 5,
+        "category": "Web Project"
+      }
+]
