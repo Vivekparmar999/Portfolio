@@ -4,6 +4,8 @@
 //https://img.shields.io/badge/Express.js-%23404d59?style=flat-square&logo=amazon-aws&logoColor=white
 //List of Logo - https://github.com/simple-icons/simple-icons/blob/master/slugs.md
 
+import { differenceInMonths, differenceInYears } from "date-fns";
+
 export const badgeImage:{[badge:string]:string}={
     "javascript": "https://img.shields.io/badge/javascript-%23323330.svg?style=flat-square&logo=javascript&logoColor=%23F7DF1E",
     "typescript": "https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat-square&logo=typescript&logoColor=white",
@@ -18,4 +20,10 @@ export const badgeImage:{[badge:string]:string}={
     "firestore database": "https://img.shields.io/badge/firestore_db-%23039BE5.svg?style=flat-square&logo=firebase&logoColor=%23FFCC2E",
     "firebase hosting": "https://img.shields.io/badge/firebase_hosting-%23039BE5.svg?style=flat-square&logo=firebase&logoColor=%23FFCC2E",
     "tailwind css": "https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=flat-square&logo=tailwind-css&logoColor=white"
+}
+
+export const calculateYears = (date: Date): number => {
+    const today = new Date();
+    const ageYears = differenceInYears(today, date);
+    return ageYears;
 }
