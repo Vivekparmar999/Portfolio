@@ -27,7 +27,7 @@ export default function Home() {
 
   const [roleIndex, setRoleIndex] = useState(0);
   const roles = [
-    'Sitecore Developer |',
+    'Sitecore Certified Developer |',
     '.Net Developer |',
     'Frontened Developer |',
   ];
@@ -72,27 +72,18 @@ export default function Home() {
           </div>
           <div className="text-v9-light-grey font-light mt-8">
             <p className="">
-              Im a developer based in{' '}
+              I`m a developer based in{' '}
               <Anchor
-                href="https://www.google.com/maps/place/Nadiad,+Gujarat/@22.6958086,51.7649756,4z"
+                href="https://www.google.com/maps/place/Ahmedabad,+Gujarat/@23.0204741,72.4149257,11z"
                 target="_blank"
                 onClick={() => {}}
               >
-                Nadiad, Gujarat
+                Ahmedabad, Gujarat
               </Anchor>
-              , with 2 years of experience working with{' '}
-              <span className="font-bold">Javascript , React , Css</span>.
-              Specialize in building{' '}
-              <Anchor
-                href="https://vivek9patel.github.io/"
-                onClick={() => {}}
-                target={'_blank'}
-              >
-                expectional website
-              </Anchor>
-              , applications and everything in between. Currently I am in my
-              final year of completing Master Degree in Computer science from
-              ASU, so I`m looking for software engineering/new grad jobs.
+              , with 3 years of experience working with{' '}
+              <span className="font-bold">Sitecore , .Net, Javascript</span>.
+              Specialize in building , expectional website, applications and everything in between.
+              Currently, I am looking for position where I get appreciation of my knowledge.
             </p>
           </div>
         </div>
@@ -112,7 +103,7 @@ export default function Home() {
         </div>
         <div className="text-v9-light-grey font-light mt-2 mb-4">
           For over 3 years, I have cultivated a deep understanding and expertise
-          in <span className="">Front-end Engineering</span>, always
+          in <span className="">Software Engineering</span>, always
           prioritizing the users needs. In every project I undertake, my aim is
           to craft tailored, intuitive, and thoroughly tested experiences that
           align the goals of companies with the expectations of users.
@@ -128,7 +119,7 @@ export default function Home() {
               alt="University of Phoneix Logo"
               className="h-16 mr-4 mt-1 hidden sm:block"
             />
-            <div className="flex flex-col justify-between sm:w-[500px]">
+            <div className="flex flex-col justify-between ml-6 sm:w-[500px]">
               <div className="text-v9-light-grey font-light">
                 Full Stack Developer - 6 Months{' '}
               </div>
@@ -180,7 +171,7 @@ export default function Home() {
               alt="University of Phoneix Logo"
               className="h-16 mr-4 mt-1 hidden sm:block"
             />
-            <div className="flex flex-col justify-between sm:w-[500px]">
+            <div className="flex flex-col justify-between ml-6 sm:w-[500px]">
               <div className="text-v9-light-grey font-light">
                 Trainee Engineer - 6 Months{' '}
               </div>
@@ -215,7 +206,7 @@ export default function Home() {
               alt="University of Phoneix Logo"
               className="h-4 mr-4 mt-8 hidden sm:block"
             />
-            <div className="flex flex-col justify-between sm:w-[500px]">
+            <div className="flex flex-col justify-between ml-6 sm:w-[500px]">
               <div className="text-v9-light-grey font-light">
                 Internship - 5 Months{' '}
               </div>

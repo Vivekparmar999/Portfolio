@@ -5,18 +5,28 @@ import Cursor from '../components/Cursor';
 import Header from '@/components/Header';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [currentLink,setCurrentLink] = useState("");
+  const [canonicalLink,setCanonicalLink] = useState("https://vivekparmar.vercel.app");
   const clientRouter = useRouter();
 
   useEffect(()=>{
+    //pathname: /resume
     setCurrentLink(clientRouter.pathname.split("/")[1]);
+    if(clientRouter.pathname!="/")
+    {
+      setCanonicalLink("https://vivekparmar.vercel.app"+clientRouter.pathname);
+    }else{
+      setCanonicalLink("https://vivekparmar.vercel.app");
+    }
   },[clientRouter.pathname]);
 
   return (
     <>
       <Context>
+        <Head><link rel="canonical" href={canonicalLink}></link></Head>
         <Cursor />
         <Header currentLink={currentLink}/>
         <div className="w-full flex justify-center">
