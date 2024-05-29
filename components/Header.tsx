@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const header = ({ currentLink = "" })=>{
+const Header = ({ currentLink = "" })=>{
 
   const [isHmMenuBtnClicked, setIsHmMenuBtnClicked] = useState(false);
     return (
@@ -108,5 +108,5 @@ const header = ({ currentLink = "" })=>{
       </div>
     );
 }
-        {/**Home,Resume,Linkedin Link, Github idk */}
-export default header;
+
+export default Header;
