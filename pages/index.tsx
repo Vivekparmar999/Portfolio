@@ -6,6 +6,22 @@ import { projectListContext } from '../context';
 import ProjectCard, { ProjectCardProps } from '../components/ProjectCard';
 import { Anchor, Button, Hr } from '../components/customHtml';
 import EmailBox from '../components/EmailBox';
+import {
+  SiSitecore,
+  SiDotnet ,
+  SiReact ,
+  SiMongodb ,
+  SiMysql ,
+  SiTeamcity ,
+  SiOctopusdeploy ,
+  SiRedis ,
+  SiJavascript ,
+  SiHtml5 ,
+  SiCss3 ,
+  SiNextdotjs ,
+  SiJquery ,
+  SiGithub
+} from "react-icons/si";
 
 import eInfochipsLogo from '../images/Einfochips Logo.png';
 import innoventixSolutions from '../images/InnoventixSolutions.png';
@@ -82,8 +98,9 @@ export default function Home() {
               </Anchor>
               , with 3 years of experience working with{' '}
               <span className="font-bold">Sitecore , .Net, Javascript</span>.
-              Specialize in building , expectional website, applications and everything in between.
-              Currently, I am looking for position where I get appreciation of my knowledge.
+              Specialize in building , expectional website, applications and
+              everything in between. Currently, I am looking for position where
+              I get appreciation of my knowledge.
             </p>
           </div>
         </div>
@@ -103,10 +120,10 @@ export default function Home() {
         </div>
         <div className="text-v9-light-grey font-light mt-2 mb-4">
           For over 3 years, I have cultivated a deep understanding and expertise
-          in <span className="">Software Engineering</span>, always
-          prioritizing the users needs. In every project I undertake, my aim is
-          to craft tailored, intuitive, and thoroughly tested experiences that
-          align the goals of companies with the expectations of users.
+          in <span className="">Software Engineering</span>, always prioritizing
+          the users needs. In every project I undertake, my aim is to craft
+          tailored, intuitive, and thoroughly tested experiences that align the
+          goals of companies with the expectations of users.
         </div>
         <Hr width="100%" />
         <div className="flex justify-between flex-col lg:flex-row">
@@ -160,6 +177,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        {/** Uncomment for Trainee Engineer
         <Hr width="100%" />
         <div className="flex justify-between flex-col lg:flex-row">
           <div className="text-4xl xl:text-4xl mb-6 lg:mb-0 flex items-center justify-center text-v9-light-grey font-light">
@@ -194,7 +212,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <Hr width="100%" />
         <div className="flex justify-between flex-col lg:flex-row">
           <div className="text-4xl xl:text-4xl mb-6 lg:mb-0 flex items-center justify-center text-v9-light-grey font-light">
@@ -250,7 +268,102 @@ export default function Home() {
         </div>
       </div>
 
-      {/*Experiemce Section*/}
+      {/** Professional Skillset*/}
+      <div className="mt-20 sm:mt-32">
+        <div className="text-4x1 sm:text-5xl font-medium">
+          Professional Skillset
+        </div>
+        <div className="mt-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 grids-row-auto auto-rows-fr gap-x-6 gap-y-6">
+            <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
+              <div className="flex px-6 py-6 opacity-90  justify-center">
+                <SiSitecore />
+              </div>
+            </div>
+            <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
+              <div className="flex px-6 py-6 opacity-90  justify-center">
+                <SiDotnet />
+              </div>
+            </div>
+            <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
+              <div className="flex px-6 py-6 opacity-90  justify-center">
+                <SiJavascript />
+              </div>
+            </div>
+            <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
+              <div className="flex px-6 py-6 opacity-90  justify-center">
+                <SiJquery />
+              </div>
+            </div>
+            <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
+              <div className="flex px-6 py-6 opacity-90  justify-center">
+                <SiReact />
+              </div>
+            </div>
+            <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
+              <div className="flex px-6 py-6 opacity-90  justify-center">
+                <SiNextdotjs />
+              </div>
+            </div>
+            <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
+              <div className="flex px-6 py-6 opacity-90  justify-center">
+                <SiHtml5 />
+              </div>
+            </div>
+            <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
+              <div className="flex px-6 py-6 opacity-90  justify-center">
+                <SiCss3 />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/**Database */}
+      <div className="text-3xl font-medium mt-5 sm:mt-8">Database</div>
+      <div className="mt-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 grids-row-auto auto-rows-fr gap-x-6 gap-y-6">
+          <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
+            <div className="flex px-6 py-6 opacity-90  justify-center">
+              <SiMysql />
+            </div>
+          </div>
+          <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
+            <div className="flex px-6 py-6 opacity-90  justify-center">
+              <SiMongodb />
+            </div>
+          </div>
+          <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
+            <div className="flex px-6 py-6 opacity-90  justify-center">
+              <SiRedis />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/**Tools */}
+      <div className="text-3xl font-medium mt-5 sm:mt-8">Tools (CI/CD)</div>
+      <div className="mt-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 grids-row-auto auto-rows-fr gap-x-6 gap-y-6">
+          <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
+            <div className="flex px-6 py-6 opacity-90  justify-center">
+              <SiGithub/>
+            </div>
+          </div>
+          <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
+            <div className="flex px-6 py-6 opacity-90  justify-center">
+              <SiOctopusdeploy />
+            </div>
+          </div>
+          <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
+            <div className="flex px-6 py-6 opacity-90  justify-center">
+              <SiTeamcity />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/*Projects Section*/}
       <div className="mt-20 sm:mt-32">
         <div className="flex justify-between mb-10 items-center">
           <div className="flex text-4xl sm:text-5xl font-medium">Projects</div>
