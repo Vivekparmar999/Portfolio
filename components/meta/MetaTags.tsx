@@ -21,6 +21,12 @@ export default function MetaTags() {
             href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
+        <link
+        rel="mask-icon"
+        href="/logo.svg"
+        color="#5bbad5"
+      />
+
         <meta name="msapplication-TileColor" content="#2b5797" />
         <meta name="theme-color" content="#162447" />
 
