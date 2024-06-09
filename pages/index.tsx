@@ -81,10 +81,10 @@ export default function Home() {
           <div className="text-4xl md:text-5xl font-medium">
             <div>Hey, I`m Vivek Parmar</div>
             <div className="mt-4">
-              <span className="hidden sm:inline-block mr-4 md:text-3xl">
+              <span className="hidden sm:inline-block sm:text-2xl mr-4 md:text-3xl">
                 I`m a
               </span>
-              <span className="text-v9-yellow whitespace-nowrap md:text-3xl text-xl">
+              <span className="text-v9-yellow whitespace-nowrap md:text-3xl sm:text-2xl text-xl">
                 {text}
               </span>
             </div>
