@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 import { projectListContext } from '../context';
 import ProjectCard, { ProjectCardProps } from '../components/ProjectCard';
 import { Anchor, Button, Hr } from '../components/customHtml';
-import EmailBox from '../components/EmailBox';
 import {
   SiSitecore,
   SiDotnet ,
@@ -25,6 +24,8 @@ import {
 
 import eInfochipsLogo from '../images/Einfochips Logo.png';
 import innoventixSolutions from '../images/InnoventixSolutions.png';
+import { IconType } from 'react-icons';
+import React from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -35,6 +36,11 @@ export default function Home() {
 
   const { projectList, setProjectList } = useContext(projectListContext);
   const [top6Projects, setTop6Projects] = useState<ProjectCardProps[]>([]);
+
+  const professionalSkillList : IconType[] = [SiSitecore,SiDotnet,SiJavascript,SiJquery,SiReact,SiNextdotjs,SiHtml5,SiCss3];
+  const databaseList : IconType[] = [SiMysql,SiMongodb,SiRedis];
+  const toolsList : IconType[] = [SiGithub,SiOctopusdeploy,SiTeamcity];
+
   useEffect(() => {
     setTop6Projects(
       projectList.sort((a, b) => b.priority - a.priority).slice(0, 6),
@@ -78,7 +84,7 @@ export default function Home() {
               <span className="hidden sm:inline-block mr-4 md:text-3xl">
                 I`m a
               </span>
-              <span className="text-v9-yellow whitespace-nowrap md:text-3xl">
+              <span className="text-v9-yellow whitespace-nowrap md:text-3xl text-xl">
                 {text}
               </span>
             </div>
@@ -275,69 +281,34 @@ export default function Home() {
         </div>
         <div className="mt-5">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 grids-row-auto auto-rows-fr gap-x-6 gap-y-6">
-            <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
-              <div className="flex px-6 py-6 opacity-90  justify-center">
-                <SiSitecore />
+            {professionalSkillList.map((professionalSkill: IconType, index) => (
+              <div
+                key={index}
+                className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]"
+              >
+                <div className="flex px-6 py-6 opacity-90  justify-center">
+                  {React.createElement(professionalSkill as React.ElementType)}
+                </div>
               </div>
-            </div>
-            <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
-              <div className="flex px-6 py-6 opacity-90  justify-center">
-                <SiDotnet />
-              </div>
-            </div>
-            <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
-              <div className="flex px-6 py-6 opacity-90  justify-center">
-                <SiJavascript />
-              </div>
-            </div>
-            <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
-              <div className="flex px-6 py-6 opacity-90  justify-center">
-                <SiJquery />
-              </div>
-            </div>
-            <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
-              <div className="flex px-6 py-6 opacity-90  justify-center">
-                <SiReact />
-              </div>
-            </div>
-            <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
-              <div className="flex px-6 py-6 opacity-90  justify-center">
-                <SiNextdotjs />
-              </div>
-            </div>
-            <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
-              <div className="flex px-6 py-6 opacity-90  justify-center">
-                <SiHtml5 />
-              </div>
-            </div>
-            <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
-              <div className="flex px-6 py-6 opacity-90  justify-center">
-                <SiCss3 />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
-      
+
       {/**Database */}
       <div className="text-3xl font-medium mt-5 sm:mt-8">Database</div>
       <div className="mt-5">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 grids-row-auto auto-rows-fr gap-x-6 gap-y-6">
-          <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
-            <div className="flex px-6 py-6 opacity-90  justify-center">
-              <SiMysql />
+          {databaseList.map((database: IconType, index) => (
+            <div
+              key={index}
+              className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]"
+            >
+              <div className="flex px-6 py-6 opacity-90  justify-center">
+                {React.createElement(database as React.ElementType)}
+              </div>
             </div>
-          </div>
-          <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
-            <div className="flex px-6 py-6 opacity-90  justify-center">
-              <SiMongodb />
-            </div>
-          </div>
-          <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
-            <div className="flex px-6 py-6 opacity-90  justify-center">
-              <SiRedis />
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -345,21 +316,16 @@ export default function Home() {
       <div className="text-3xl font-medium mt-5 sm:mt-8">Tools (CI/CD)</div>
       <div className="mt-5">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 grids-row-auto auto-rows-fr gap-x-6 gap-y-6">
-          <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
-            <div className="flex px-6 py-6 opacity-90  justify-center">
-              <SiGithub/>
+          {toolsList.map((tools: IconType, index) => (
+            <div
+              key={index}
+              className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]"
+            >
+              <div className="flex px-6 py-6 opacity-90  justify-center">
+                {React.createElement(tools as React.ElementType)}
+              </div>
             </div>
-          </div>
-          <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
-            <div className="flex px-6 py-6 opacity-90  justify-center">
-              <SiOctopusdeploy />
-            </div>
-          </div>
-          <div className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]">
-            <div className="flex px-6 py-6 opacity-90  justify-center">
-              <SiTeamcity />
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -370,27 +336,20 @@ export default function Home() {
           <Button onClick={() => {}}>View All</Button>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grids-row-auto auto-rows-fr gap-x-5 gap-y-5">
-          {/*<ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />*/}
           {top6Projects.map((project: ProjectCardProps, index) => (
             <ProjectCard key={index} {...project} />
           ))}
         </div>
       </div>
 
-      {/** TODO Section */}
       {/**Contact Email Section*/}
       {/*<div className="mt-20 sm:mt-32">
         <div className="text-4xl sm:text-5xl font-medium">Contact Me</div>
         <div className="font-light text-v9-light-grey mt-4 mb-10">
           Im always open to new opportunities and connections. Feel free to
           reach out to me at{' '}
-          <Anchor href="mailto:parmarvivek084@gmail.com">
-            parmarvivek084@gmail.com
+          <Anchor href="mailto:curiouscreator1@proton.me">
+          curiouscreator1@proton.me
           </Anchor>
           !
         </div>

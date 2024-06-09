@@ -134,7 +134,7 @@ export default function Cursor() {
     {/*uncomment className: lg:flex hidden*/}
     {/** Neeed to check whether scrolling & cursor will work in laptop & mobile */}
       <div
-        className={`custom-cursor border-2 border-v9-yellow flex 
+        className={`custom-cursor border-2 border-v9-yellow flex lg:flex hidden
         ${
           cursor.hoveredOver || cursor.scrolling
             ? "border-opacity-100 cursor-hover-animation duration-300"
@@ -151,7 +151,7 @@ export default function Cursor() {
       {/*uncomment className: md:flex hidden*/}
       {!(cursor.hoveredOver || cursor.hideDot || cursor.scrolling) && (
         <div
-          className="fixed w-1 h-1 rounded-full bg-v9-yellow z-[999] pointer-events-none flex"
+          className="fixed w-1 h-1 rounded-full bg-v9-yellow z-[999] pointer-events-none flex lg:flex hidden"
           style={{
             transform: `translate3d(${cursor.x + 14}px, ${cursor.y + 14}px, 0)`,
           }}

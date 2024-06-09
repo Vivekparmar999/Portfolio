@@ -10,6 +10,10 @@
   cursor: none;
 }
 
+button{
+  cursor: none;
+}
+
 .custom-cursor {
   position: fixed;
   top: 0;
