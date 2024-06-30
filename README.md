@@ -17,4 +17,4 @@ To deploy Next.js app used [Vercel Platform](https://vercel.com)
 [Code Github1s Link](https://github1s.com/Vivekparmar999/Portfolio)
 
 ### Acknowledgements
-Special thanks to [Vivek Patel](https://www.linkedin.com/in/vivek9patel/) for providing portfolio inspiration.
+Special thanks to [Vivek Patel](https://github.com/vivek9patel) for providing portfolio inspiration.
