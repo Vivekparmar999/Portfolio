@@ -1,7 +1,7 @@
 [
     {
-        "title": "Amazon Clone Website",
-        "tagline": "Build Responsive Amazon Clone Website using React Js library.<br/>Full User Authentication, CheckOut Page,Basket Functionality & other functionality",
+        "title": "E-commerce Website",
+        "tagline": "Build Responsive E-commerce Website using React Js library.<br/>Full User Authentication, CheckOut Page,Basket Functionality & other functionality",
         "year": 0,
         "badges": [
           "react","firebase","javascript","stripe","firebase authentication","firestore database","firebase hosting"

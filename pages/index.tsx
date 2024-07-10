@@ -154,8 +154,18 @@ export default function Home() {
               <div className="text-light text-v9-light-grey mt-2">
                 <ul className="list-disc">
                   <li>
-                    Work on Technology like Sitecore, .Net , javascipt and
-                    Jquery and for database mssql and mongo DB.
+                  Developed layout components in Sitecore using MVC
+                  (Model-View-Controller) architecture
+                  </li>
+                  <li>
+                  Built headless applications using Angular for decoupled
+                  front-end architecture. Leveraged Angular Universal for 
+                  server-side rendering (SSR) to improve SEO and performance.
+                  </li>
+                  <li>
+                  Integrated Apache Solr with Sitecore CMS for advanced search capabilities.
+                  Designed and implemented Solr schema configurations to optimize search
+                  indexing and querying.
                   </li>
                   <li>
                     Deploy the build to Production & lower environment ,and also
@@ -175,8 +185,9 @@ export default function Home() {
                   </li>
                   <li>Migrate project from .Net framework 4.8 to .Net 7</li>
                   <li>
-                    Proficient in resolving website issues through technical SEO
-                    audits to enhance search performance.
+                     Implemented dynamic sitemap generation based on content
+                     updates and site structure & other SEO technique to improve
+                     SEO and search engine crawlability
                   </li>
                 </ul>
               </div>
