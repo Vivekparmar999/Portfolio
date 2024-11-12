@@ -154,9 +154,9 @@ export default function Home() {
               <div className="text-light text-v9-light-grey mt-2">
                 <ul className="list-disc">
                   <li>
-                  Involve in planning,upgrade execution,Backup ,Deployment 
-                  & Monitoring and post-upgrade validation of Sitecore
-                  to upgrade from version 10.0.1 to 10.3.0
+                  Involved in planning,upgrade execution,backup ,deployment ,
+                  monitoring and post-upgrade validation for Sitecore
+                  upgrade from version 10.0.1 to 10.3.0
                   </li>
                   <li>
                   Developed layout components in Sitecore using MVC
