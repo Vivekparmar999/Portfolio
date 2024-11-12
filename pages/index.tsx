@@ -102,7 +102,7 @@ export default function Home() {
               >
                 Ahmedabad, Gujarat
               </Anchor>
-              , with 3 years of experience working with{' '}
+              , with 3+ years of experience working with{' '}
               <span className="font-bold">Sitecore , .Net, Javascript</span>.
               Specialize in building , expectional website, applications and
               everything in between. Currently, I am looking for position where
@@ -144,7 +144,7 @@ export default function Home() {
             />
             <div className="flex flex-col justify-between ml-6 sm:w-[500px]">
               <div className="text-v9-light-grey font-light">
-                Full Stack Developer - 6 Months{' '}
+                Full Stack Developer {/*- 6 Months*/}{' '}
               </div>
               <div className="text-lg sm:text-xl">
                 Software Engineer at
@@ -153,6 +153,11 @@ export default function Home() {
               </div>
               <div className="text-light text-v9-light-grey mt-2">
                 <ul className="list-disc">
+                  <li>
+                  Involve in planning,upgrade execution,Backup ,Deployment 
+                  & Monitoring and post-upgrade validation of Sitecore
+                  to upgrade from version 10.0.1 to 10.3.0
+                  </li>
                   <li>
                   Developed layout components in Sitecore using MVC
                   (Model-View-Controller) architecture
@@ -188,6 +193,10 @@ export default function Home() {
                      Implemented dynamic sitemap generation based on content
                      updates and site structure & other SEO technique to improve
                      SEO and search engine crawlability
+                  </li>
+                  <li>
+                  Integrated Adobe Analytics into the project to enhance data 
+                  tracking and insights.
                   </li>
                 </ul>
               </div>
