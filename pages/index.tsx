@@ -26,6 +26,7 @@ import eInfochipsLogo from '../images/Einfochips Logo.png';
 import innoventixSolutions from '../images/InnoventixSolutions.png';
 import { IconType } from 'react-icons';
 import React from 'react';
+import TagManager from "react-gtm-module";
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -46,6 +47,35 @@ export default function Home() {
       projectList.sort((a, b) => b.priority - a.priority).slice(0, 6),
     );
   }, [projectList]);
+
+    // Function to get user details
+    const getUserDetails = () => {
+      return {
+        dateTime: new Date().toISOString(),
+        userAgent: navigator.userAgent,
+        deviceType: /Mobi|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop",
+        screenResolution: `${window.screen.width}x${window.screen.height}`,
+        language: navigator.language,
+      };
+    };
+
+   // GTM Event Trigger on Page Load
+   useEffect(() => {
+    const userDetails = getUserDetails();
+    TagManager.dataLayer({
+      dataLayer: {
+        event: "Home_Page_Event",
+        pagePath: window.location.pathname,
+        pageTitle: document.title,
+        dateTime: userDetails.dateTime,
+        userAgent: userDetails.userAgent,
+        deviceType: userDetails.deviceType,
+        screenResolution: userDetails.screenResolution,
+        language: userDetails.language
+      },
+    });
+    console.log("GTM event pushed: Homepage view");
+  }, []); // Runs only once when component mounts
 
   const [roleIndex, setRoleIndex] = useState(0);
   const roles = [

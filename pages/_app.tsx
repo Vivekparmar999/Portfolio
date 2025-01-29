@@ -6,12 +6,16 @@ import Header from '@/components/Header';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import TagManager from "react-gtm-module";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [currentLink,setCurrentLink] = useState("");
   const [canonicalLink,setCanonicalLink] = useState("https://vivekparmar.vercel.app");
   const clientRouter = useRouter();
-
+  const tagManagerArgs = {
+    gtmId: "G-6R0LXRBZ15"
+  };
+  
   useEffect(()=>{
     //pathname: /resume
     setCurrentLink(clientRouter.pathname.split("/")[1]);
@@ -21,6 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
     }else{
       setCanonicalLink("https://vivekparmar.vercel.app");
     }
+    TagManager.initialize(tagManagerArgs);
   },[clientRouter.pathname]);
 
   return (
