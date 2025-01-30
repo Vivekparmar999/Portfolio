@@ -5,6 +5,7 @@
 //List of Logo - https://github.com/simple-icons/simple-icons/blob/master/slugs.md
 
 import { differenceInMonths, differenceInYears } from "date-fns";
+import TagManager from "react-gtm-module";
 
 export const badgeImage:{[badge:string]:string}={
     "javascript": "https://img.shields.io/badge/javascript-%23323330.svg?style=flat-square&logo=javascript&logoColor=%23F7DF1E",
@@ -27,3 +28,32 @@ export const calculateYears = (date: Date): number => {
     const ageYears = differenceInYears(today, date);
     return ageYears;
 }
+
+// Function to get user details
+export const sendGTMEvent = async (eventName:string):Promise<void> => {
+
+    var data = undefined;
+    try {
+        const response = await fetch("https://ipapi.co/json/");
+        data = await response.json();
+      } catch (error) {
+        console.error("Failed to fetch location:", error);
+      }
+
+      TagManager.dataLayer({
+        dataLayer: {
+          event: {eventName},
+          pagePath: window.location.pathname,
+          pageTitle: document.title,
+          dateTime: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+          userAgent: navigator.userAgent,
+          deviceType: /Mobi|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop",
+          screenResolution: `${window.screen.width}x${window.screen.height}`,
+          language: navigator.language,
+          country: data ? data.country_name : undefined,
+          region: data ? data.region : undefined,
+          city: data ? data.city : undefined,
+          location: data ? `Latitude: ${data.latitude}, Longitude: ${data.longitude}` : undefined
+        },
+      });
+  };

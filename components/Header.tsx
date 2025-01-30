@@ -1,8 +1,12 @@
+import { sendGTMEvent } from "@/helpers/helpers";
 import Link from "next/link";
 import { useState } from "react";
 
 const Header = ({ currentLink = "" })=>{
 
+  const handleLinkClick = (eventName: string) => {
+    sendGTMEvent(eventName);
+  };
   const [isHmMenuBtnClicked, setIsHmMenuBtnClicked] = useState(false);
     return (
       <div className="sticky top-0 z-50 dark:text-slate-300 bg-v9-primary-black">
@@ -77,12 +81,14 @@ const Header = ({ currentLink = "" })=>{
               <Link
                 href="/"
                 className={`mx-2 w-full mb-2 sm:mb-0 sm:w-auto ${currentLink === '' ? 'text-v9-yellow' : 'hover:text-white'} underline-offset-2`}
+                onClick={()=>handleLinkClick("homePage_header_link_click")}
               >
                 Home
               </Link>
               <Link
                 href="/resume"
                 className={`mx-2 w-full mb-2 sm:mb-0 sm:w-auto ${currentLink === 'resume' ? 'text-v9-yellow' : 'hover:text-white'} underline-offset-2`}
+                onClick={()=>handleLinkClick("resume_header_link_click")}
               >
                 Resume
               </Link>
@@ -90,6 +96,7 @@ const Header = ({ currentLink = "" })=>{
                 href="https://www.linkedin.com/in/vivek-parmar-0b10b4134/"
                 target="_blank"
                 className={`mx-2 w-full mb-2 sm:mb-0 sm:w-auto ${currentLink === 'LinkedIn' ? 'text-v9-yellow' : 'hover:text-white'} underline-offset-2`}
+                onClick={()=>handleLinkClick("LinkedIn_header_link_click")}
               >
                 LinkedIn
               </Link>
@@ -97,6 +104,7 @@ const Header = ({ currentLink = "" })=>{
                 href="https://github.com/Vivekparmar999"
                 target="_blank"
                 className={`mx-2 w-full mb-2 sm:mb-0 sm:w-auto ${currentLink === 'Github' ? 'text-v9-yellow' : 'hover:text-white'} underline-offset-2`}
+                onClick={()=>handleLinkClick("Github_header_link_click")}
               >
                 Github
               </Link>
