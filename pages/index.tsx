@@ -19,7 +19,8 @@ import {
   SiCss3 ,
   SiNextdotjs ,
   SiJquery ,
-  SiGithub
+  SiGithub,
+  SiAngular
 } from "react-icons/si";
 
 import eInfochipsLogo from '../images/Einfochips Logo.png';
@@ -39,7 +40,7 @@ export default function Home() {
   const { projectList, setProjectList } = useContext(projectListContext);
   const [top6Projects, setTop6Projects] = useState<ProjectCardProps[]>([]);
 
-  const professionalSkillList : IconType[] = [SiSitecore,SiDotnet,SiJavascript,SiJquery,SiReact,SiNextdotjs,SiHtml5,SiCss3];
+  const professionalSkillList : IconType[] = [SiSitecore,SiDotnet,SiAngular,SiJavascript,SiJquery,SiReact,SiNextdotjs,SiHtml5,SiCss3];
   const databaseList : IconType[] = [SiMysql,SiMongodb,SiRedis];
   const toolsList : IconType[] = [SiGithub,SiOctopusdeploy,SiTeamcity];
 
