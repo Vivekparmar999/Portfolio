@@ -1,11 +1,22 @@
-import { sendGTMEvent } from "@/helpers/helpers";
+import { sendGTMEvent, URLS } from "@/helpers/helpers";
 import Link from "next/link";
 import { useState } from "react";
 
 const Header = ({ currentLink = "" })=>{
 
-  const handleLinkClick = (eventName: string) => {
-    sendGTMEvent(eventName);
+
+
+  const handleLinkClick = async (event: React.MouseEvent<HTMLAnchorElement>,eventName: string, url: string) => {
+    event.preventDefault();
+    await sendGTMEvent(eventName);
+    if(url){
+      if(url.includes("resume"))
+      {
+        window.open(url,'_self');
+      }else{
+        window.open(url,'_blank');
+      }
+    }
   };
   const [isHmMenuBtnClicked, setIsHmMenuBtnClicked] = useState(false);
     return (
@@ -79,32 +90,32 @@ const Header = ({ currentLink = "" })=>{
 
             <div className={`${isHmMenuBtnClicked? "flex":"hidden"} sm:flex absolute text-right right-0 top-full bg-v9-secondary-black border border-v9-light-grey border-opacity-40  rounded p-2 sm:p-0 sm:border-none sm:bg-transparent sm:top-0 sm:right mr-10 sm:m-0 flex-col sm:relative sm:flex-row items-center transition-none `}>
               <Link
-                href="/"
+                href={URLS.home}
                 className={`mx-2 w-full mb-2 sm:mb-0 sm:w-auto ${currentLink === '' ? 'text-v9-yellow' : 'hover:text-white'} underline-offset-2`}
-                onClick={()=>handleLinkClick("homePage_header_link_click")}
+                onClick={(e)=>handleLinkClick(e,"homePage_header_link_click",URLS.home)}
               >
                 Home
               </Link>
               <Link
-                href="/resume"
+                href={URLS.resume}
                 className={`mx-2 w-full mb-2 sm:mb-0 sm:w-auto ${currentLink === 'resume' ? 'text-v9-yellow' : 'hover:text-white'} underline-offset-2`}
-                onClick={()=>handleLinkClick("resume_header_link_click")}
+                onClick={(e)=>handleLinkClick(e,"resume_header_link_click",URLS.resume)}
               >
                 Resume
               </Link>
               <Link
-                href="https://www.linkedin.com/in/vivek-parmar-0b10b4134/"
+                href={URLS.linkedin}
                 target="_blank"
                 className={`mx-2 w-full mb-2 sm:mb-0 sm:w-auto ${currentLink === 'LinkedIn' ? 'text-v9-yellow' : 'hover:text-white'} underline-offset-2`}
-                onClick={()=>handleLinkClick("LinkedIn_header_link_click")}
+                onClick={(e)=>handleLinkClick(e,"LinkedIn_header_link_click",URLS.linkedin)}
               >
                 LinkedIn
               </Link>
               <Link
-                href="https://github.com/Vivekparmar999"
+                href={URLS.github}
                 target="_blank"
                 className={`mx-2 w-full mb-2 sm:mb-0 sm:w-auto ${currentLink === 'Github' ? 'text-v9-yellow' : 'hover:text-white'} underline-offset-2`}
-                onClick={()=>handleLinkClick("Github_header_link_click")}
+                onClick={(e)=>handleLinkClick(e,"Github_header_link_click",URLS.github)}
               >
                 Github
               </Link>

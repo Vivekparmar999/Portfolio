@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [canonicalLink,setCanonicalLink] = useState("https://vivekparmar.vercel.app");
   const clientRouter = useRouter();
   const tagManagerArgs = {
-    gtmId: "G-6R0LXRBZ15"
+    gtmId: "G-KR2Y21KPVJ"
   };
   
   useEffect(()=>{

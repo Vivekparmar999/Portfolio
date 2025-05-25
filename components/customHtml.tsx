@@ -1,8 +1,27 @@
+import { sendGTMEvent } from "@/helpers/helpers";
 import { AnchorHTMLAttributes , ButtonHTMLAttributes } from "react";
 
 const Anchor = (props:AnchorHTMLAttributes<HTMLAnchorElement>)=>{
+
+    const handleClick = async (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        event.preventDefault();
+
+        var targetElement = event.currentTarget as HTMLAnchorElement 
+        if(targetElement.dataset.gtm_event){
+            await sendGTMEvent(targetElement.dataset.gtm_event);
+        }
+        
+        const href = props.href as string;
+
+        if(href)
+        {
+            window.open(href,'_blank');
+        }   
+    }
+
 return (
     <a
+        onClick={handleClick}
         {...props}
         data-cursor={true}
         target="_blank"
@@ -12,7 +31,7 @@ return (
 }
 
 const Hr = ({width='100%'}) => {
-return (
+return ( 
     <div className="flex justify-center">
         <div style={{height:"1px",width}} className="my-6 bg-gray-600 w-full"></div>
     </div>

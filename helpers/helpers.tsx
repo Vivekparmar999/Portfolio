@@ -7,6 +7,13 @@
 import { differenceInMonths, differenceInYears } from "date-fns";
 import TagManager from "react-gtm-module";
 
+export const URLS = {
+  home: '/',
+  resume: '/resume',
+  linkedin: 'https://www.linkedin.com/in/vivek-parmar-0b10b4134/',
+  github: 'https://github.com/Vivekparmar999'
+  };
+
 export const badgeImage:{[badge:string]:string}={
     "javascript": "https://img.shields.io/badge/javascript-%23323330.svg?style=flat-square&logo=javascript&logoColor=%23F7DF1E",
     "typescript": "https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat-square&logo=typescript&logoColor=white",

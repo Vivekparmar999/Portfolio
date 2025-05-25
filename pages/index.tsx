@@ -53,7 +53,8 @@ export default function Home() {
 
    // GTM Event Trigger on Page Load
    useEffect(() => {
-    sendGTMEvent("home_page_event");
+    const run = async ()=>{await sendGTMEvent("home_page_event")};
+    run();
   }, []); // Runs only once when component mounts
 
   const [roleIndex, setRoleIndex] = useState(0);
@@ -107,7 +108,6 @@ export default function Home() {
               <Anchor
                 href="https://www.google.com/maps/place/Ahmedabad,+Gujarat/@23.0204741,72.4149257,11z"
                 target="_blank"
-                onClick={() => {}}
               >
                 Ahmedabad, Gujarat
               </Anchor>
@@ -126,9 +126,9 @@ export default function Home() {
         <div className="flex justify-between mb-6 items-center">
           <div className="text-4xl sm:text-5xl font-medium">Experience</div>
           <Button
-            onClick={() => {
+            onClick={async () => {
               clientRouter.push('/resume');
-              sendGTMEvent("viewResume_btn_click");
+              await sendGTMEvent("viewResume_btn_click");
             }}
           >
             View Resume
@@ -158,8 +158,8 @@ export default function Home() {
               </div>
               <div className="text-lg sm:text-xl">
                 Software Engineer at
-                <Anchor href="https://www.einfochips.com">EInfochips</Anchor>|
-                Project -<Anchor href="https://www.arrow.com">Arrow</Anchor>
+                <Anchor data-gtm_event="Click_EinfoChips_Btn" href="https://www.einfochips.com" >EInfochips</Anchor>|
+                Project -<Anchor data-gtm_event="Click_Arrow_Btn" href="https://www.arrow.com">Arrow</Anchor>
               </div>
               <div className="text-light text-v9-light-grey mt-2">
                 <ul className="list-disc">
@@ -266,7 +266,7 @@ export default function Home() {
               </div>
               <div className="text-lg sm:text-xl">
                 Application Development at
-                <Anchor href="https://innoventixsolutions.com">
+                <Anchor data-gtm_event="Click_InnoventixSolution_Btn" href="https://innoventixsolutions.com">
                   Innoventix Solutions
                 </Anchor>
               </div>
