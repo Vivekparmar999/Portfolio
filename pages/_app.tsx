@@ -11,20 +11,31 @@ export default function App({ Component, pageProps }: AppProps) {
   const [currentLink,setCurrentLink] = useState("");
   const [canonicalLink,setCanonicalLink] = useState("https://vivekparmar.vercel.app");
   const clientRouter = useRouter();
-  
+  const homePageUrl = "https://vivekparmar.vercel.app";
+  window.dataLayer = window.dataLayer || [];
+
   useEffect(()=>{
     //pathname: /resume
     setCurrentLink(clientRouter.pathname.split("/")[1]);
     if(clientRouter.pathname!="/")
     {
-      setCanonicalLink("https://vivekparmar.vercel.app"+clientRouter.pathname);
+      const customUrl = homePageUrl+clientRouter.pathname; 
+      setCanonicalLink(customUrl);
       window.gtag('config', 'G-KR2Y21KPVJ', {
-        page_path: "https://vivekparmar.vercel.app"+clientRouter.pathname,
+        page_path: customUrl,
+      });
+      window.dataLayer.push({
+        event: 'pageview',
+        page_path: customUrl
       });
     }else{
-      setCanonicalLink("https://vivekparmar.vercel.app");
+      setCanonicalLink(homePageUrl);
       window.gtag('config', 'G-KR2Y21KPVJ', {
-        page_path: "https://vivekparmar.vercel.app",
+        page_path: homePageUrl,
+      });
+      window.dataLayer.push({
+        event: 'pageview',
+        page_path: homePageUrl
       });
     }
   },[clientRouter.pathname]);
