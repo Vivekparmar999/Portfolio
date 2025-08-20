@@ -5,7 +5,6 @@
 //List of Logo - https://github.com/simple-icons/simple-icons/blob/master/slugs.md
 
 import { differenceInMonths, differenceInYears } from "date-fns";
-import TagManager from "react-gtm-module";
 
 export const URLS = {
   home: '/',
@@ -47,7 +46,7 @@ export const sendGTMEvent = async (eventName:string):Promise<void> => {
         console.error("Failed to fetch location:", error);
       }
 
-      TagManager.dataLayer({
+      /*TagManager.dataLayer({
         dataLayer: {
           event: {eventName},
           pagePath: window.location.pathname,
@@ -62,5 +61,24 @@ export const sendGTMEvent = async (eventName:string):Promise<void> => {
           city: data ? data.city : undefined,
           location: data ? `Latitude: ${data.latitude}, Longitude: ${data.longitude}` : undefined
         },
-      });
+      });*/
+
+        // Send an event to Google Analytics
+      if (window.gtag) {
+        window.gtag({eventName}, 'click', {
+          event: {eventName},
+          pagePath: window.location.pathname,
+          pageTitle: document.title,
+          dateTime: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+          userAgent: navigator.userAgent,
+          deviceType: /Mobi|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop",
+          screenResolution: `${window.screen.width}x${window.screen.height}`,
+          language: navigator.language,
+          country: data ? data.country_name : undefined,
+          region: data ? data.region : undefined,
+          city: data ? data.city : undefined,
+          location: data ? `Latitude: ${data.latitude}, Longitude: ${data.longitude}` : undefined
+        });
+      }
+
   };

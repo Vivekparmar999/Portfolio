@@ -6,6 +6,21 @@ export default function Document() {
   return (
     <Html lang="en" className="dark">
       <Head>
+        {/* Add Google Analytics Global Site Tag */}
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=G-KR2Y21KPVJ`}
+          ></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-KR2Y21KPVJ');
+              `,
+            }}
+          ></script>
         <MetaTags/>
         <link
           rel="stylesheet"

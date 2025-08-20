@@ -6,15 +6,11 @@ import Header from '@/components/Header';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import TagManager from "react-gtm-module";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [currentLink,setCurrentLink] = useState("");
   const [canonicalLink,setCanonicalLink] = useState("https://vivekparmar.vercel.app");
   const clientRouter = useRouter();
-  const tagManagerArgs = {
-    gtmId: "G-KR2Y21KPVJ"
-  };
   
   useEffect(()=>{
     //pathname: /resume
@@ -22,10 +18,15 @@ export default function App({ Component, pageProps }: AppProps) {
     if(clientRouter.pathname!="/")
     {
       setCanonicalLink("https://vivekparmar.vercel.app"+clientRouter.pathname);
+      window.gtag('config', 'G-KR2Y21KPVJ', {
+        page_path: "https://vivekparmar.vercel.app"+clientRouter.pathname,
+      });
     }else{
       setCanonicalLink("https://vivekparmar.vercel.app");
+      window.gtag('config', 'G-KR2Y21KPVJ', {
+        page_path: "https://vivekparmar.vercel.app",
+      });
     }
-    TagManager.initialize(tagManagerArgs);
   },[clientRouter.pathname]);
 
   return (

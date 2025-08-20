@@ -51,11 +51,6 @@ export default function Home() {
   }, [projectList]);
 
 
-   // GTM Event Trigger on Page Load
-   useEffect(() => {
-    const run = async ()=>{await sendGTMEvent("home_page_event")};
-    run();
-  }, []); // Runs only once when component mounts
 
   const [roleIndex, setRoleIndex] = useState(0);
   const roles = [
