@@ -64,7 +64,7 @@ export const sendGTMEvent = async (eventName:string):Promise<void> => {
       });*/
 
         // Send an event to Google Analytics
-      if (window.gtag) {
+      if (typeof window !== 'undefined' && window.gtag) {
           window.gtag('event', eventName, {
             event_category: 'click',
             pagePath: window.location.pathname,
@@ -81,7 +81,7 @@ export const sendGTMEvent = async (eventName:string):Promise<void> => {
           });
       }
 
-      if (window) {
+      if (typeof window !== 'undefined') {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: eventName,

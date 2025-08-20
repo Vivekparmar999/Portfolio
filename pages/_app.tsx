@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const clientRouter = useRouter();
   const homePageUrl = "https://vivekparmar.vercel.app";
 
-  if (window) {
+  if (typeof window !== 'undefined') {
     window.dataLayer = window.dataLayer || [];
   }
 
@@ -24,22 +24,30 @@ export default function App({ Component, pageProps }: AppProps) {
     {
       const customUrl = homePageUrl+clientRouter.pathname; 
       setCanonicalLink(customUrl);
-      window.gtag('config', 'G-KR2Y21KPVJ', {
-        page_path: customUrl,
-      });
-      window.dataLayer.push({
-        event: 'pageview',
-        page_path: customUrl
-      });
+
+      if (typeof window !== 'undefined') {
+        window.gtag('config', 'G-KR2Y21KPVJ', {
+          page_path: customUrl,
+        });
+        window.dataLayer.push({
+          event: 'pageview',
+          page_path: customUrl
+        });
+      }
+
     }else{
       setCanonicalLink(homePageUrl);
-      window.gtag('config', 'G-KR2Y21KPVJ', {
-        page_path: homePageUrl,
-      });
-      window.dataLayer.push({
-        event: 'pageview',
-        page_path: homePageUrl
-      });
+
+      if (typeof window !== 'undefined') {
+        window.gtag('config', 'G-KR2Y21KPVJ', {
+          page_path: homePageUrl,
+        });
+        window.dataLayer.push({
+          event: 'pageview',
+          page_path: homePageUrl
+        });
+      }
+
     }
   },[clientRouter.pathname]);
 
