@@ -12,7 +12,10 @@ export default function App({ Component, pageProps }: AppProps) {
   const [canonicalLink,setCanonicalLink] = useState("https://vivekparmar.vercel.app");
   const clientRouter = useRouter();
   const homePageUrl = "https://vivekparmar.vercel.app";
-  window.dataLayer = window.dataLayer || [];
+
+  if (window) {
+    window.dataLayer = window.dataLayer || [];
+  }
 
   useEffect(()=>{
     //pathname: /resume
