@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import { Analytics } from '@vercel/analytics/next';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [currentLink,setCurrentLink] = useState("");
@@ -63,6 +64,7 @@ export default function App({ Component, pageProps }: AppProps) {
           </div>
         </div>
       </Context>
+      <Analytics />
     </>
   );
 }
