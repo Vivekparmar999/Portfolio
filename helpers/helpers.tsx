@@ -31,8 +31,10 @@ export const badgeImage:{[badge:string]:string}={
 
 export const calculateYears = (date: Date): number => {
     const today = new Date();
-    const ageYears = differenceInYears(today, date);
-    return ageYears;
+    const years = differenceInYears(today, date);
+    const months = differenceInMonths(today, date) % 12;
+    const preciseYears = years + (months / 12);
+    return Math.round(preciseYears);
 }
 
 // Function to get user details

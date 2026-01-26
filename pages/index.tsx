@@ -28,7 +28,7 @@ import innoventixSolutions from '../images/InnoventixSolutions.png';
 import { IconType } from 'react-icons';
 import React from 'react';
 import TagManager from "react-gtm-module";
-import { sendGTMEvent } from '@/helpers/helpers';
+import { sendGTMEvent, calculateYears } from '@/helpers/helpers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -39,10 +39,35 @@ export default function Home() {
 
   const { projectList, setProjectList } = useContext(projectListContext);
   const [top6Projects, setTop6Projects] = useState<ProjectCardProps[]>([]);
+  
+  const careerStartDate = new Date('2021-09-01');
+  const yearsOfExperience = calculateYears(careerStartDate);
 
-  const professionalSkillList : IconType[] = [SiSitecore,SiDotnet,SiAngular,SiJavascript,SiJquery,SiReact,SiNextdotjs,SiHtml5,SiCss3];
-  const databaseList : IconType[] = [SiMysql,SiMongodb,SiRedis];
-  const toolsList : IconType[] = [SiGithub,SiOctopusdeploy,SiTeamcity];
+  const [flippedSkill, setFlippedSkill] = useState<number | null>(null);
+  const [flippedDb, setFlippedDb] = useState<number | null>(null);
+  const [flippedTool, setFlippedTool] = useState<number | null>(null);
+
+  const professionalSkillList : {icon: IconType, name: string}[] = [
+    {icon: SiSitecore, name: 'Sitecore'},
+    {icon: SiDotnet, name: '.NET'},
+    {icon: SiAngular, name: 'Angular'},
+    {icon: SiJavascript, name: 'JavaScript'},
+    {icon: SiJquery, name: 'jQuery'},
+    {icon: SiReact, name: 'React'},
+    {icon: SiNextdotjs, name: 'Next.js'},
+    {icon: SiHtml5, name: 'HTML5'},
+    {icon: SiCss3, name: 'CSS3'}
+  ];
+  const databaseList : {icon: IconType, name: string}[] = [
+    {icon: SiMysql, name: 'MySQL'},
+    {icon: SiMongodb, name: 'MongoDB'},
+    {icon: SiRedis, name: 'Redis'}
+  ];
+  const toolsList : {icon: IconType, name: string}[] = [
+    {icon: SiGithub, name: 'GitHub'},
+    {icon: SiOctopusdeploy, name: 'Octopus Deploy'},
+    {icon: SiTeamcity, name: 'TeamCity'}
+  ];
 
   useEffect(() => {
     setTop6Projects(
@@ -106,7 +131,7 @@ export default function Home() {
               >
                 Ahmedabad, Gujarat
               </Anchor>
-              , with 3+ years of experience working with{' '}
+              , with {yearsOfExperience} years of experience working with{' '}
               <span className="font-bold">Sitecore , .Net, Javascript</span>.
               Specialize in building , expectional website, applications and
               everything in between. Currently, I am looking for position where
@@ -130,7 +155,7 @@ export default function Home() {
           </Button>
         </div>
         <div className="text-v9-light-grey font-light mt-2 mb-4">
-          For over 3 years, I have cultivated a deep understanding and expertise
+          For over {yearsOfExperience} years, I have cultivated a deep understanding and expertise
           in <span className="">Software Engineering</span>, always prioritizing
           the users needs. In every project I undertake, my aim is to craft
           tailored, intuitive, and thoroughly tested experiences that align the
@@ -306,13 +331,25 @@ export default function Home() {
         </div>
         <div className="mt-5">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 grids-row-auto auto-rows-fr gap-x-6 gap-y-6">
-            {professionalSkillList.map((professionalSkill: IconType, index) => (
+            {professionalSkillList.map((skill, index) => (
               <div
                 key={index}
-                className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]"
+                className="relative h-32 [perspective:1000px] group"
+                onClick={() => setFlippedSkill(flippedSkill === index ? null : index)}
               >
-                <div className="flex px-6 py-6 opacity-90  justify-center">
-                  {React.createElement(professionalSkill as React.ElementType)}
+                <div className={`relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] ${flippedSkill === index ? '[transform:rotateY(180deg)]' : ''}`}>
+                  {/* Front */}
+                  <div className="absolute inset-0 flex items-center justify-center text-5xl border border-[#C889E6] rounded-md bg-v9-secondary-black [backface-visibility:hidden]">
+                    <div className="flex px-6 py-6 opacity-90 justify-center">
+                      {React.createElement(skill.icon as React.ElementType)}
+                    </div>
+                  </div>
+                  {/* Back */}
+                  <div className="absolute inset-0 flex items-center justify-center border border-[#C573E6] border-2 rounded-md bg-v9-secondary-black [backface-visibility:hidden] [transform:rotateY(180deg)] shadow-md shadow-[#5904A8]">
+                    <div className="text-lg font-medium text-white px-4 text-center">
+                      {skill.name}
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -324,13 +361,25 @@ export default function Home() {
       <div className="text-3xl font-medium mt-5 sm:mt-8">Database</div>
       <div className="mt-5">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 grids-row-auto auto-rows-fr gap-x-6 gap-y-6">
-          {databaseList.map((database: IconType, index) => (
+          {databaseList.map((db, index) => (
             <div
               key={index}
-              className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]"
+              className="relative h-32 [perspective:1000px] group"
+              onClick={() => setFlippedDb(flippedDb === index ? null : index)}
             >
-              <div className="flex px-6 py-6 opacity-90  justify-center">
-                {React.createElement(database as React.ElementType)}
+              <div className={`relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] ${flippedDb === index ? '[transform:rotateY(180deg)]' : ''}`}>
+                {/* Front */}
+                <div className="absolute inset-0 flex items-center justify-center text-5xl border border-[#C889E6] rounded-md bg-v9-secondary-black [backface-visibility:hidden]">
+                  <div className="flex px-6 py-6 opacity-90 justify-center">
+                    {React.createElement(db.icon as React.ElementType)}
+                  </div>
+                </div>
+                {/* Back */}
+                <div className="absolute inset-0 flex items-center justify-center border border-[#C573E6] border-2 rounded-md bg-v9-secondary-black [backface-visibility:hidden] [transform:rotateY(180deg)] shadow-md shadow-[#5904A8]">
+                  <div className="text-lg font-medium text-white px-4 text-center">
+                    {db.name}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
@@ -341,13 +390,25 @@ export default function Home() {
       <div className="text-3xl font-medium mt-5 sm:mt-8">Tools (CI/CD)</div>
       <div className="mt-5">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 grids-row-auto auto-rows-fr gap-x-6 gap-y-6">
-          {toolsList.map((tools: IconType, index) => (
+          {toolsList.map((tool, index) => (
             <div
               key={index}
-              className="place-items-center text-5xl border border-[#C889E6] rounded-md hover:border-[#C573E6] hover:border-2 bg-v9-secondary-black transition-colors hover:shadow-md hover:shadow-[#5904A8]"
+              className="relative h-32 [perspective:1000px] group"
+              onClick={() => setFlippedTool(flippedTool === index ? null : index)}
             >
-              <div className="flex px-6 py-6 opacity-90  justify-center">
-                {React.createElement(tools as React.ElementType)}
+              <div className={`relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] ${flippedTool === index ? '[transform:rotateY(180deg)]' : ''}`}>
+                {/* Front */}
+                <div className="absolute inset-0 flex items-center justify-center text-5xl border border-[#C889E6] rounded-md bg-v9-secondary-black [backface-visibility:hidden]">
+                  <div className="flex px-6 py-6 opacity-90 justify-center">
+                    {React.createElement(tool.icon as React.ElementType)}
+                  </div>
+                </div>
+                {/* Back */}
+                <div className="absolute inset-0 flex items-center justify-center border border-[#C573E6] border-2 rounded-md bg-v9-secondary-black [backface-visibility:hidden] [transform:rotateY(180deg)] shadow-md shadow-[#5904A8]">
+                  <div className="text-lg font-medium text-white px-4 text-center">
+                    {tool.name}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
