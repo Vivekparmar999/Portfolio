@@ -16,15 +16,17 @@ import {
   SiRedis ,
   SiJavascript ,
   SiHtml5 ,
-  SiCss3 ,
+  SiCss as SiCss3 ,
   SiNextdotjs ,
   SiJquery ,
   SiGithub,
   SiAngular
 } from "react-icons/si";
+import { TbBrandAdobe } from "react-icons/tb";
 
 import eInfochipsLogo from '../images/Einfochips Logo.png';
 import innoventixSolutions from '../images/InnoventixSolutions.png';
+import experienceData from '../data/experience.json';
 import { IconType } from 'react-icons';
 import React from 'react';
 import TagManager from "react-gtm-module";
@@ -43,6 +45,12 @@ export default function Home() {
   const careerStartDate = new Date('2021-09-01');
   const yearsOfExperience = calculateYears(careerStartDate);
 
+  //Added here to control logo height
+  const companyLogos: Record<string, { src: string; className: string }> = {
+    eInfochipsLogo: { src: eInfochipsLogo.src, className: 'h-16 mt-1' },
+    innoventixSolutions: { src: innoventixSolutions.src, className: 'h-4 mt-8' }
+  };
+
   const [flippedSkill, setFlippedSkill] = useState<number | null>(null);
   const [flippedDb, setFlippedDb] = useState<number | null>(null);
   const [flippedTool, setFlippedTool] = useState<number | null>(null);
@@ -52,6 +60,7 @@ export default function Home() {
     {icon: SiDotnet, name: '.NET'},
     {icon: SiAngular, name: 'Angular'},
     {icon: SiJavascript, name: 'JavaScript'},
+    {icon: TbBrandAdobe, name: 'Adobe Experience Manager'},
     {icon: SiJquery, name: 'jQuery'},
     {icon: SiReact, name: 'React'},
     {icon: SiNextdotjs, name: 'Next.js'},
@@ -161,155 +170,58 @@ export default function Home() {
           tailored, intuitive, and thoroughly tested experiences that align the
           goals of companies with the expectations of users.
         </div>
-        <Hr width="100%" />
-        <div className="flex justify-between flex-col lg:flex-row">
-          <div className="text-4xl xl:text-4xl mb-6 lg:mb-0 flex items-center justify-center text-v9-light-grey font-light">
-            October 21 - Present
-          </div>
-          <div className="flex justify-center">
-            <img
-              src={eInfochipsLogo.src}
-              alt="University of Phoneix Logo"
-              className="h-16 mr-4 mt-1 hidden sm:block"
-            />
-            <div className="flex flex-col justify-between ml-6 sm:w-[500px]">
-              <div className="text-v9-light-grey font-light">
-                Full Stack Developer {/*- 6 Months*/}{' '}
+        
+        {/** Professional Experience*/}
+        {experienceData.map((exp: any, expIdx) => (
+          <React.Fragment key={expIdx}>
+            <Hr width="100%" />
+            <div className="flex justify-between flex-col lg:flex-row">
+              <div className="text-4xl xl:text-4xl mb-6 lg:mb-0 flex items-center justify-center text-v9-light-grey font-light">
+                {exp.duration}
               </div>
-              <div className="text-lg sm:text-xl">
-                Software Engineer at
-                <Anchor data-gtm_event="Click_EinfoChips_Btn" href="https://www.einfochips.com" >EInfochips</Anchor>|
-                Project -<Anchor data-gtm_event="Click_Arrow_Btn" href="https://www.arrow.com">Arrow</Anchor>
-              </div>
-              <div className="text-light text-v9-light-grey mt-2">
-                <ul className="list-disc">
-                  <li>
-                  Involved in planning,upgrade execution,backup ,deployment ,
-                  monitoring and post-upgrade validation for Sitecore
-                  upgrade from version 10.0.1 to 10.3.0
-                  </li>
-                  <li>
-                  Developed layout components in Sitecore using MVC
-                  (Model-View-Controller) architecture
-                  </li>
-                  <li>
-                  Built headless applications using Angular for decoupled
-                  front-end architecture. Leveraged Angular Universal for 
-                  server-side rendering (SSR) to improve SEO and performance.
-                  </li>
-                  <li>
-                  Integrated Apache Solr with Sitecore CMS for advanced search capabilities.
-                  Designed and implemented Solr schema configurations to optimize search
-                  indexing and querying.
-                  </li>
-                  <li>
-                    Deploy the build to Production & lower environment ,and also
-                    work on production incidents.
-                  </li>
-                  <li>
-                    Successfully Installed Sitecore vulnerability hotfix patch
-                    in all environment.
-                  </li>
-                  <li>
-                    Making websites accessible to all by removing barriers for
-                    people with disabilities (Based on WCAG 2.1 Guideline)
-                  </li>
-                  <li>
-                    Used Fortify tool for identifying and fixing security
-                    vulnerabilities in software applications.
-                  </li>
-                  <li>Migrate project from .Net framework 4.8 to .Net 7</li>
-                  <li>
-                     Implemented dynamic sitemap generation based on content
-                     updates and site structure & other SEO technique to improve
-                     SEO and search engine crawlability
-                  </li>
-                  <li>
-                  Integrated Adobe Analytics into the project to enhance data 
-                  tracking and insights.
-                  </li>
-                </ul>
+              <div className="flex justify-center">
+                {companyLogos[exp.logo] && (
+                  <img
+                    src={companyLogos[exp.logo].src}
+                    alt={`${exp.company} Logo`}
+                    className={`${companyLogos[exp.logo].className} mr-4 hidden sm:block`}
+                  />
+                )}
+                <div className="flex flex-col justify-between ml-6 sm:w-[500px]">
+                  <div className="text-xl sm:text-2xl font-semibold">
+                    {exp.role}
+                  </div>
+                  <div className="text-v9-light-grey text-lg font-light">
+                    at <Anchor data-gtm_event={exp.gtmEvent} href={exp.companyUrl} className="text-white hover:text-[#C889E6] font-medium underline">{exp.company}</Anchor>
+                  </div>
+                  
+                  {exp.projects.map((proj: any, projIdx: number) => (
+                    <React.Fragment key={projIdx}>
+                      <div className="text-lg sm:text-xl mt-4 border-t border-v9-light-grey border-opacity-20 pt-4">
+                        Project - {proj.projectUrl ? (
+                          <Anchor data-gtm_event={proj.gtmEvent} href={proj.projectUrl} className="text-[#C889E6] hover:underline font-medium">{proj.name}</Anchor>
+                        ) : (
+                          <span className="text-[#C889E6] font-medium">{proj.name}</span>
+                        )}
+                        {proj.duration && (
+                          <span className="text-sm text-v9-light-grey block sm:inline-block sm:ml-4 font-light">({proj.duration})</span>
+                        )}
+                      </div>
+                      <div className="text-light text-v9-light-grey mt-2">
+                        <ul className="list-disc">
+                          {proj.highlights.map((highlight: string, highIdx: number) => (
+                            <li key={highIdx}>{highlight}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </React.Fragment>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        {/** Uncomment for Trainee Engineer
-        <Hr width="100%" />
-        <div className="flex justify-between flex-col lg:flex-row">
-          <div className="text-4xl xl:text-4xl mb-6 lg:mb-0 flex items-center justify-center text-v9-light-grey font-light">
-            Aug 2021 - Oct 2021
-          </div>
-          <div className="flex justify-center">
-            <img
-              src={eInfochipsLogo.src}
-              alt="University of Phoneix Logo"
-              className="h-16 mr-4 mt-1 hidden sm:block"
-            />
-            <div className="flex flex-col justify-between ml-6 sm:w-[500px]">
-              <div className="text-v9-light-grey font-light">
-                Trainee Engineer - 6 Months{' '}
-              </div>
-              <div className="text-lg sm:text-xl">
-                Trainee Engineer at
-                <Anchor href="https://www.einfochips.com">EInfochips</Anchor>
-              </div>
-              <div className="text-light text-v9-light-grey mt-2">
-                <ul className="list-disc">
-                  <li>
-                    Learned about Java, Linux, Cloud - AWS, Azure, Critical
-                    Analysis, emotional intelligence, logical thinking, ethics,
-                    and management.
-                  </li>
-                  <li>
-                    Developed Movie Management System project with responsive
-                    web design.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div> */}
-        <Hr width="100%" />
-        <div className="flex justify-between flex-col lg:flex-row">
-          <div className="text-4xl xl:text-4xl mb-6 lg:mb-0 flex items-center justify-center text-v9-light-grey font-light">
-            Jan 2021 - May 2021
-          </div>
-          <div className="flex justify-center">
-            <img
-              src={innoventixSolutions.src}
-              alt="University of Phoneix Logo"
-              className="h-4 mr-4 mt-8 hidden sm:block"
-            />
-            <div className="flex flex-col justify-between ml-6 sm:w-[500px]">
-              <div className="text-v9-light-grey font-light">
-                Internship - 5 Months{' '}
-              </div>
-              <div className="text-lg sm:text-xl">
-                Application Development at
-                <Anchor data-gtm_event="Click_InnoventixSolution_Btn" href="https://innoventixsolutions.com">
-                  Innoventix Solutions
-                </Anchor>
-              </div>
-              <div className="text-light text-v9-light-grey mt-2">
-                <ul className="list-disc">
-                  <li>
-                    TeleHealth Application that can interact between patient
-                    with Client to solve Health related problems.
-                  </li>
-                  <li>
-                    It includes Video,Calling,chat,admin,managing Clients,
-                    Billing and Insurance.
-                  </li>
-                  <li>Create Rest Api for application</li>
-                  <li>
-                    It has Hippa Supported all feature that is necessary for
-                    Telehealth App for US law as Client from US.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+          </React.Fragment>
+        ))}
+
         <Hr width="100%" />
         <div
           className="text-v9-light-grey underline hover:text-white"

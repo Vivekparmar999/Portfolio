@@ -1,0 +1,67 @@
+[
+  {
+    "company": "EInfochips",
+    "logo": "eInfochipsLogo",
+    "role": "Software Engineer",
+    "companyUrl": "https://www.einfochips.com",
+    "gtmEvent": "Click_EinfoChips_Btn",
+    "duration": "October 21 - Present",
+    "projects": [
+      {
+        "name": "Arrow (Redesign)",
+        "duration": "Jan 26 - Present",
+        "projectUrl": "https://www.arrow.com",
+        "gtmEvent": "Click_Arrow_Btn",
+        "highlights": [
+          "Enterprise e-commerce platform built with AEM CMS, React, and CI/CD pipelines (Azure Pipelines, AEM Pipelines).",
+          "Participated in stakeholder and team discussions to understand existing functionality, identify improvement opportunities, and define business requirements for the website redesign.",
+          "Developed and documented 10+ reusable UI components using React and MUI, leveraging Storybook for documentation and testing, improving maintainability and reducing code duplication.",
+          "Leveraged Windsurf AI to automate repetitive development tasks, resulting in a 25% increase in development efficiency.",
+          "Deploy the build to Production & lower environment ,and also work on production incidents.",
+          "Developed custom AEM components using Sling, OSGi, and Java to enhance user experience.",
+          "Used Wiz security tool for identifying and fixing security vulnerabilities in software applications."
+        ]
+      },
+      {
+        "name": "Arrow",
+        "duration": "Oct 21 - Dec 25",
+        "projectUrl": "https://www.arrow.com",
+        "gtmEvent": "Click_Arrow_Btn",
+        "highlights": [
+          "Enterprise e-commerce platform built with Sitecore CMS, Angular, .NET MVC, Apache Solr, MySQL, and CI/CD pipelines (TeamCity, Octopus Deploy).",
+          "Involved in planning,upgrade execution,backup ,deployment , monitoring and post-upgrade validation for Sitecore upgrade from version 10.0.1 to 10.3.0",
+          "Developed layout components in Sitecore using MVC (Model-View-Controller) architecture",
+          "Built headless applications using Angular for decoupled front-end architecture. Leveraged Angular Universal for server-side rendering (SSR) to improve SEO and performance.",
+          "Integrated Apache Solr with Sitecore CMS for advanced search capabilities. Designed and implemented Solr schema configurations to optimize search indexing and querying.",
+          "Deploy the build to Production & lower environment ,and also work on production incidents.",
+          "Successfully Installed Sitecore vulnerability hotfix patch in all environment.",
+          "Making websites accessible to all by removing barriers for people with disabilities (Based on WCAG 2.1 Guideline)",
+          "Used Fortify tool for identifying and fixing security vulnerabilities in software applications.",
+          "Migrate several Microservices from .Net framework 4.8 to .Net 7",
+          "Implemented dynamic sitemap generation based on content updates and site structure & other SEO technique to improve SEO and search engine crawlability",
+          "Integrated Adobe Analytics into the project to enhance data tracking and insights.",
+          "Created automation scripts to export Sitecore data into Excel format for seamless migration to AEM CMS"
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Innoventix Solutions",
+    "logo": "innoventixSolutions",
+    "role": "Internship",
+    "companyUrl": "https://innoventixsolutions.com",
+    "gtmEvent": "Click_InnoventixSolution_Btn",
+    "duration": "Jan 2021 - May 2021",
+    "projects": [
+      {
+        "name": "TeleHealth Application",
+        "highlights": [
+          "TeleHealth Application that can interact between patient with Client to solve Health related problems.",
+          "It includes Video, Calling, chat, admin, managing Clients, Billing and Insurance.",
+          "Create Rest Api for application.",
+          "It has Hippa Supported all feature that is necessary for Telehealth App for US law as Client from US."
+        ]
+      }
+    ]
+  }
+]
