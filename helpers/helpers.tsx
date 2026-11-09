@@ -5,6 +5,7 @@
 //List of Logo - https://github.com/simple-icons/simple-icons/blob/master/slugs.md
 
 import { differenceInMonths, differenceInYears } from "date-fns";
+import { trackClick, type ClickProperties } from "./analytics";
 
 export const URLS = {
   home: '/',
@@ -38,15 +39,7 @@ export const calculateYears = (date: Date): number => {
 }
 
 // Function to get user details
-export const sendGTMEvent = async (eventName:string):Promise<void> => {
-
-    var data = undefined;
-    try {
-        const response = await fetch("https://ipapi.co/json/");
-        data = await response.json();
-      } catch (error) {
-        console.error("Failed to fetch location:", error);
-      }
+export const sendGTMEvent = (eventName:string, properties?: ClickProperties):Promise<void> => {
 
       /*TagManager.dataLayer({
         dataLayer: {
@@ -66,39 +59,5 @@ export const sendGTMEvent = async (eventName:string):Promise<void> => {
       });*/
 
         // Send an event to Google Analytics
-      if (typeof window !== 'undefined' && window.gtag) {
-          window.gtag('event', eventName, {
-            event_category: 'click',
-            pagePath: window.location.pathname,
-            pageTitle: document.title,
-            dateTime: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
-            userAgent: navigator.userAgent,
-            deviceType: /Mobi|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop",
-            screenResolution: `${window.screen.width}x${window.screen.height}`,
-            language: navigator.language,
-            country: data ? data.country_name : undefined,
-            region: data ? data.region : undefined,
-            city: data ? data.city : undefined,
-            location: data ? `Latitude: ${data.latitude}, Longitude: ${data.longitude}` : undefined
-          });
-      }
-
-      if (typeof window !== 'undefined') {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: eventName,
-          event_category: 'click',
-          pagePath: window.location.pathname,
-          pageTitle: document.title,
-          dateTime: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata',}),
-          userAgent: navigator.userAgent,
-          deviceType: /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
-          screenResolution: `${window.screen.width}x${window.screen.height}`,
-          language: navigator.language,
-          country: data ? data.country_name : undefined,
-          region: data ? data.region : undefined,
-          city: data ? data.city : undefined,
-          location: data ? `Latitude: ${data.latitude}, Longitude: ${data.longitude}` : undefined
-        });
-      }
+      return trackClick(eventName, properties);
   };

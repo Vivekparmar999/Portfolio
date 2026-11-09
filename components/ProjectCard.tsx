@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Button } from './customHtml';
-import { badgeImage } from '@/helpers/helpers';
+import { ButtonLink } from './customHtml';
+import { badgeImage, sendGTMEvent } from '@/helpers/helpers';
 export type ProjectCardProps = {
   title: string;
   tagline: string;
@@ -47,7 +46,7 @@ export default function ProjectCard(props: ProjectCardProps) {
             </div>
           ) : null}
         </div>
-        <div className=" text-lg 2xl:text-xl mt-2">{props.title}</div>
+        <h3 className=" text-lg 2xl:text-xl mt-2">{props.title}</h3>
         <div className=" text-v9-light-grey font-light mt-2" dangerouslySetInnerHTML={{__html: props.tagline }}>
         </div>
       </div>
@@ -64,9 +63,12 @@ export default function ProjectCard(props: ProjectCardProps) {
         </div>
         <div className="flex items-center mt-4">
           {props.github_url && (
-            <Button
+            <ButtonLink
+              href={props.github_url}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => {
-                window.open(props.github_url, '_blank');
+                void sendGTMEvent("project_source_click", { project_title: props.title, link_url: props.github_url });
               }}
               className="mx-1 flex-1"
               id={`view-project-button`}
@@ -90,12 +92,15 @@ export default function ProjectCard(props: ProjectCardProps) {
                   </g>
                 </g>
               </svg>
-            </Button>
+            </ButtonLink>
           )}
           {props.demo_url && (
-            <Button
+            <ButtonLink
+              href={props.demo_url}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => {
-                window.open(props.demo_url, '_blank');
+                void sendGTMEvent("project_demo_click", { project_title: props.title, link_url: props.demo_url });
               }}
               className="mx-1 flex-1"
               id={`demo-project-button`}
@@ -119,7 +124,7 @@ export default function ProjectCard(props: ProjectCardProps) {
                   </g>
                 </g>
               </svg>
-            </Button>
+            </ButtonLink>
           )}
         </div>
       </div>

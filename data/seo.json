@@ -1,0 +1,28 @@
+{
+  "siteUrl": "https://vivekparmar.vercel.app",
+  "name": "Vivek Parmar",
+  "siteName": "Vivek Parmar Portfolio",
+  "jobTitle": "Software Engineer",
+  "image": "/android-chrome-512x512.png",
+  "imageAlt": "Vivek Parmar portfolio logo",
+  "home": {
+    "title": "Vivek Parmar | Software Engineer | Sitecore, AEM & React",
+    "description": "Vivek Parmar is a software engineer in Ahmedabad, India, working with Sitecore, AEM, .NET, Angular and React. Explore his experience, projects and resume."
+  },
+  "resume": {
+    "title": "Vivek Parmar Resume | Software Engineer",
+    "description": "Read Vivek Parmar's software engineering resume, including experience with Sitecore, AEM, .NET, Angular and React. View or download his resume as a PDF."
+  },
+  "skills": [
+    "Sitecore",
+    "Adobe Experience Manager",
+    ".NET",
+    "Angular",
+    "React",
+    "Next.js",
+    "JavaScript",
+    "MySQL",
+    "MongoDB",
+    "Redis"
+  ]
+}

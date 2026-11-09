@@ -6,17 +6,10 @@ const Header = ({ currentLink = "" })=>{
 
 
 
-  const handleLinkClick = async (event: React.MouseEvent<HTMLAnchorElement>,eventName: string, url: string) => {
-    event.preventDefault();
-    await sendGTMEvent(eventName);
-    if(url){
-      if(url.includes("resume"))
-      {
-        window.open(url,'_self');
-      }else{
-        window.open(url,'_blank');
-      }
-    }
+  const handleLinkClick = (eventName: string) => {
+    void sendGTMEvent(eventName).catch((error) => {
+      console.error("Failed to track header navigation:", error);
+    });
   };
   const [isHmMenuBtnClicked, setIsHmMenuBtnClicked] = useState(false);
     return (
@@ -25,14 +18,15 @@ const Header = ({ currentLink = "" })=>{
         <div className="flex justify-center">
           <div className="w-full flex justify-between px-10 py-4 sm:w-[600px] md:w-[700px] lg:w-[800px] xl:w-[1000px] 2xl:w-[1200px]">
             <div className="font-semibold text-xl text-center w-40 transition ease-linear duration-1000 animateNormalWidth">
-              <a className="hover:underline underline-offset-2 hover:text-white font-medium">
+              <Link href={URLS.home} onClick={()=>handleLinkClick("logo_home_click")} className="hover:underline underline-offset-2 hover:text-white font-medium">
                 Vivek Parmar
-              </a>
+              </Link>
             </div>
 
           <div className="w-8 sm:hidden"
           onClick={()=>{
             setIsHmMenuBtnClicked(!isHmMenuBtnClicked);
+            handleLinkClick("mobile_menu_toggle_click");
           }}
           >
             <svg
@@ -92,30 +86,32 @@ const Header = ({ currentLink = "" })=>{
               <Link
                 href={URLS.home}
                 className={`mx-2 w-full mb-2 sm:mb-0 sm:w-auto ${currentLink === '' ? 'text-v9-yellow' : 'hover:text-white'} underline-offset-2`}
-                onClick={(e)=>handleLinkClick(e,"homePage_header_link_click",URLS.home)}
+                onClick={()=>handleLinkClick("homePage_header_link_click")}
               >
                 Home
               </Link>
               <Link
                 href={URLS.resume}
                 className={`mx-2 w-full mb-2 sm:mb-0 sm:w-auto ${currentLink === 'resume' ? 'text-v9-yellow' : 'hover:text-white'} underline-offset-2`}
-                onClick={(e)=>handleLinkClick(e,"resume_header_link_click",URLS.resume)}
+                onClick={()=>handleLinkClick("resume_header_link_click")}
               >
                 Resume
               </Link>
               <Link
                 href={URLS.linkedin}
                 target="_blank"
+                rel="noopener noreferrer"
                 className={`mx-2 w-full mb-2 sm:mb-0 sm:w-auto ${currentLink === 'LinkedIn' ? 'text-v9-yellow' : 'hover:text-white'} underline-offset-2`}
-                onClick={(e)=>handleLinkClick(e,"LinkedIn_header_link_click",URLS.linkedin)}
+                onClick={()=>handleLinkClick("LinkedIn_header_link_click")}
               >
                 LinkedIn
               </Link>
               <Link
                 href={URLS.github}
                 target="_blank"
+                rel="noopener noreferrer"
                 className={`mx-2 w-full mb-2 sm:mb-0 sm:w-auto ${currentLink === 'Github' ? 'text-v9-yellow' : 'hover:text-white'} underline-offset-2`}
-                onClick={(e)=>handleLinkClick(e,"Github_header_link_click",URLS.github)}
+                onClick={()=>handleLinkClick("Github_header_link_click")}
               >
                 Github
               </Link>

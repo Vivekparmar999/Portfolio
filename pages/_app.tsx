@@ -3,59 +3,25 @@ import type { AppProps } from 'next/app';
 import Context from '../context';
 import Cursor from '../components/Cursor';
 import Header from '@/components/Header';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Head from 'next/head';
+import MetaTags from '@/components/meta/MetaTags';
+import { trackPageView } from '@/helpers/analytics';
 import { Analytics } from '@vercel/analytics/next';
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [currentLink,setCurrentLink] = useState("");
-  const [canonicalLink,setCanonicalLink] = useState("https://vivekparmar.vercel.app");
   const clientRouter = useRouter();
-  const homePageUrl = "https://vivekparmar.vercel.app";
-
-  if (typeof window !== 'undefined') {
-    window.dataLayer = window.dataLayer || [];
-  }
+  //pathname: /resume
+  const currentLink = clientRouter.pathname.split("/")[1];
 
   useEffect(()=>{
-    //pathname: /resume
-    setCurrentLink(clientRouter.pathname.split("/")[1]);
-    if(clientRouter.pathname!="/")
-    {
-      const customUrl = homePageUrl+clientRouter.pathname; 
-      setCanonicalLink(customUrl);
-
-      if (typeof window !== 'undefined') {
-        window.gtag('config', 'G-KR2Y21KPVJ', {
-          page_path: customUrl,
-        });
-        window.dataLayer.push({
-          event: 'pageview',
-          page_path: customUrl
-        });
-      }
-
-    }else{
-      setCanonicalLink(homePageUrl);
-
-      if (typeof window !== 'undefined') {
-        window.gtag('config', 'G-KR2Y21KPVJ', {
-          page_path: homePageUrl,
-        });
-        window.dataLayer.push({
-          event: 'pageview',
-          page_path: homePageUrl
-        });
-      }
-
-    }
-  },[clientRouter.pathname]);
+    if (clientRouter.isReady) trackPageView();
+  },[clientRouter.isReady, clientRouter.asPath]);
 
   return (
     <>
       <Context>
-        <Head><link rel="canonical" href={canonicalLink}></link></Head>
+        <MetaTags pathname={clientRouter.pathname} />
         <Cursor />
         <Header currentLink={currentLink}/>
         <div className="w-full flex justify-center">

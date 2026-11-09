@@ -1,0 +1,19 @@
+# Vivek Parmar
+
+> Vivek Parmar is a software engineer based in Ahmedabad, Gujarat, India. His portfolio covers professional experience, software projects, technical skills and a downloadable resume.
+
+Vivek works with Sitecore, Adobe Experience Manager (AEM), .NET, Angular, React and JavaScript. His portfolio also includes Next.js, MySQL, MongoDB and Redis.
+
+## Portfolio
+
+- [Homepage](https://vivekparmar.vercel.app): Professional overview and public profile.
+- [Experience](https://vivekparmar.vercel.app/#experience): Software engineering work at eInfochips and an internship at Innoventix Solutions.
+- [Skills](https://vivekparmar.vercel.app/#skills): Web development, CMS, database and CI/CD skills.
+- [Projects](https://vivekparmar.vercel.app/#projects): E-commerce Website, Speak N Do Application and Portfolio.
+- [Resume](https://vivekparmar.vercel.app/resume): Resume page with a PDF download.
+- [Resume PDF](https://vivekparmar.vercel.app/vivek%20Resume.pdf): Downloadable resume.
+
+## Public profiles and contact
+
+- [LinkedIn](https://www.linkedin.com/in/vivek-parmar-0b10b4134/): Professional profile, recommendations and a way to connect.
+- [GitHub](https://github.com/Vivekparmar999): Public code and repositories.
