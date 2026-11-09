@@ -4,6 +4,8 @@ This is a [Next.js](https://nextjs.org/) project with [Typescript](https://www.t
 
 ## Run the development server
 
+Use Node.js 26.x for local development and builds. The `engines.node` field in `package.json` also selects Node.js 26.x on Vercel.
+
 ```bash
 npm run dev
 # or
@@ -12,6 +14,8 @@ yarn dev
 
 ## Deploy on Vercel
 To deploy Next.js app used [Vercel Platform](https://vercel.com)
+
+Set **Settings → Build and Deployment → Node.js Version** to **26.x** in Vercel. The committed `engines.node` setting takes precedence over the dashboard version. Deploy the updated commit to apply it; existing deployments are not changed.
 
 ## Quickly check code in browser
 
