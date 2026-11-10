@@ -9,8 +9,8 @@ const root = path.join(__dirname, '..');
 const read = (file) => readFileSync(path.join(root, file), 'utf8');
 const siteUrl = sitemapConfig.siteUrl;
 const pages = [
-  { file: 'index', pathname: '/', title: 'Vivek Parmar | Software Engineer' },
-  { file: 'resume', pathname: '/resume', title: 'Vivek Parmar Resume' },
+  { file: 'index', pathname: '/', title: 'Vivek Parmar | Senior Software Engineer' },
+  { file: 'resume', pathname: '/resume', title: 'Vivek Parmar Resume | Senior Software Engineer' },
 ];
 
 for (const { file, pathname, title } of pages) {

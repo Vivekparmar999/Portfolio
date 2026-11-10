@@ -1,6 +1,6 @@
 # Vivek Parmar
 
-> Vivek Parmar is a software engineer based in Ahmedabad, Gujarat, India. His portfolio covers professional experience, software projects, technical skills and a downloadable resume.
+> Vivek Parmar is a senior software engineer based in Ahmedabad, Gujarat, India. His portfolio covers professional experience, software projects, technical skills and a downloadable resume.
 
 Vivek works with Sitecore, Adobe Experience Manager (AEM), .NET, Angular, React and JavaScript. His portfolio also includes Next.js, MySQL, MongoDB and Redis.
 

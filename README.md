@@ -142,6 +142,18 @@ In Looker Studio, connect the same GA4 property, refresh the data-source fields 
 
 GA4/Looker Studio aggregate matching events; they do not necessarily show one row per physical click. For raw event-level analysis, configure GA4's BigQuery export and use `event_timestamp`, `event_name` and event parameters. This repository does not configure that export.
 
+## Dependency security
+
+Keep `next` and `eslint-config-next` on matching versions, and commit `package-lock.json` with dependency updates. Run `npm audit` for both production and development dependencies.
+
+Three scoped npm overrides replace vulnerable versions selected by upstream packages:
+
+- Next.js 15.5.29 pins PostCSS 8.4.31 and still permits the vulnerable Sharp 0.34 line. Its overrides use the project's patched dependencies (`$postcss` and `$sharp`).
+- `@tailwindcss/typography` 0.5.20 pins `postcss-selector-parser` 6.0.10. Its override selects the patched 6.1.5 release.
+- `@typescript-eslint/typescript-estree` 8.72.2 selects the vulnerable Minimatch 10 line. Its override selects patched Minimatch 11.0.1; verify type-aware parsing and linting when changing this override.
+
+Review these overrides when updating the parent packages, and remove them once their normal dependency resolution selects patched versions. Re-run the production build, tests, and audit after changes.
+
 ## SEO and verification
 
 Metadata lives in `data/seo.json`. Keep `public/llms.txt` consistent with the visible portfolio.
