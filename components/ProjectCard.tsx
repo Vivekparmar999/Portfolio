@@ -53,11 +53,14 @@ export default function ProjectCard(props: ProjectCardProps) {
       <div>
         <div className="flex custom-scroll-bar-y justify-start items-center mt-3">
           {props.badges.map((badge, i) => (
+            // eslint-disable-next-line @next/next/no-img-element -- External SVG badges use intrinsic sizing; Next.js does not optimize SVGs.
             <img
               key={i}
               className="m-1 opacity-80"
               src={`${badgeImage[badge.toLowerCase()]}`}
               alt={`${badge} badge image`}
+              loading="lazy"
+              decoding="async"
             />
           ))}
         </div>

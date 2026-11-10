@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import Image, { type StaticImageData } from 'next/image';
 import { projectListContext } from '../context';
 import ProjectCard, { ProjectCardProps } from '../components/ProjectCard';
 import { Anchor, Button, ButtonLink, Hr } from '../components/customHtml';
@@ -40,9 +41,9 @@ export default function Home() {
   const yearsOfExperience = calculateYears(careerStartDate);
 
   //Added here to control logo height
-  const companyLogos: Record<string, { src: string; className: string }> = {
-    eInfochipsLogo: { src: eInfochipsLogo.src, className: 'h-16 mt-1' },
-    innoventixSolutions: { src: innoventixSolutions.src, className: 'h-4 mt-8' }
+  const companyLogos: Record<string, { src: StaticImageData; className: string }> = {
+    eInfochipsLogo: { src: eInfochipsLogo, className: 'h-16 mt-1' },
+    innoventixSolutions: { src: innoventixSolutions, className: 'h-4 mt-8' }
   };
 
   const [flippedSkill, setFlippedSkill] = useState<number | null>(null);
@@ -83,6 +84,7 @@ export default function Home() {
 
   useEffect(() => {
     let index = 0;
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
 
     const intervalId = setInterval(() => {
       setText(fullText.slice(0, index));
@@ -90,14 +92,17 @@ export default function Home() {
 
       if (index > fullText.length) {
         clearInterval(intervalId);
-        setTimeout(() => {
+        timeoutId = setTimeout(() => {
           setRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
         }, 1000);
       }
     }, 50);
 
-    return () => clearInterval(intervalId);
-  }, [roleIndex]);
+    return () => {
+      clearInterval(intervalId);
+      clearTimeout(timeoutId);
+    };
+  }, [fullText, roles.length]);
 
   return (
     <div className="relative my-10 sm:my-20">
@@ -165,10 +170,11 @@ export default function Home() {
               </div>
               <div className="flex justify-center">
                 {companyLogos[exp.logo] && (
-                  <img
+                  <Image
                     src={companyLogos[exp.logo].src}
                     alt={`${exp.company} Logo`}
-                    className={`${companyLogos[exp.logo].className} mr-4 hidden sm:block`}
+                    sizes="80px"
+                    className={`${companyLogos[exp.logo].className} w-auto mr-4 hidden sm:block`}
                   />
                 )}
                 <div className="flex flex-col justify-between ml-6 sm:w-[500px]">
